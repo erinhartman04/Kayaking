@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kayak Gear Recommendations</title>
@@ -63,13 +64,25 @@
       transition: background-color 0.3s ease;
     }
 
-    a:hover {
+    a:focus {
+      outline: 2px solid #094e73;
+      outline-offset: 2px;
+    }
+
+    a:hover, a:focus-visible {
       background-color: #094e73;
     }
 
     nav {
       text-align: center;
       margin-bottom: 30px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: inline-flex;
+      gap: 10px;
     }
 
     nav a {
@@ -82,21 +95,49 @@
       transition: background-color 0.3s ease;
     }
 
-    nav a:hover {
+    nav a:hover, nav a:focus-visible {
       background-color: #dceefa;
+      color: #0a5a8f;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -1000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+      background-color: #fff;
+      color: #0a75ad;
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+
+    .skip-link:focus {
+      left: 10px;
+      top: 10px;
+      width: auto;
+      height: auto;
+      outline: 2px solid #094e73;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
+  <!-- Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ✅ Navigation Bar -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-    <a href="gear.html">Gear</a>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gear.html" aria-current="page">Gear</a></li>
+    </ul>
   </nav>
 
-  <main>
+  <main id="main-content" role="main">
     <h1>Kayak Gear Recommendations</h1>
 
     <img src="kayak-gear.jpg" alt="Recommended kayak gear including paddles and life jackets">
@@ -107,8 +148,11 @@
     <p>We recommend <strong>Lifetime Kayaks</strong> for their durability, comfort, and price. They’re great for lakes, rivers, and recreational paddling.</p>
 
     <p>
-      <a href="https://www.lifetime.com/kayaks-paddleboards-water-sports" target="_blank" rel="noopener noreferrer">
-        Shop Lifetime Kayaks
+      <a href="https://www.lifetime.com/kayaks-paddleboards-water-sports"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Shop Lifetime Kayaks (opens in a new tab, external link)">
+        Shop Lifetime Kayaks <span aria-hidden="true" title="External link" style="font-size:0.9em;">🔗</span>
       </a>
     </p>
   </main>
