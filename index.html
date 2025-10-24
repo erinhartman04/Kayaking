@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kayaking in Southern Idaho</title>
@@ -67,6 +68,11 @@
       background-color: #094e73;
     }
 
+    a:focus, button:focus {
+      outline: 3px solid #0a75ad;
+      outline-offset: 2px;
+    }
+
     nav {
       text-align: center;
       margin-bottom: 30px;
@@ -85,17 +91,49 @@
     nav a:hover {
       background-color: #dceefa;
     }
+
+    nav a[aria-current="page"] {
+      background-color: #dceefa;
+      color: #0a5a8f;
+      cursor: default;
+    }
+
+    /* Skip link styles for accessibility */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+      background: #0a75ad;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .skip-link:focus, .skip-link:active {
+      left: 20px;
+      top: 20px;
+      width: auto;
+      height: auto;
+      font-size: 1.1em;
+      outline: 3px solid #0a75ad;
+    }
   </style>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" aria-current="page">Home</a>
     <a href="blog.html">Blog</a>
     <a href="gear.html">Gear</a>
   </nav>
 
-  <main>
+  <main id="main-content">
     <article>
       <h1>Kayaking in Southern Idaho</h1>
 
