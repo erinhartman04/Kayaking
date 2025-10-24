@@ -64,13 +64,25 @@
       transition: background-color 0.3s ease;
     }
 
-    a:hover {
+    a:focus {
+      outline: 2px solid #094e73;
+      outline-offset: 2px;
+    }
+
+    a:hover, a:focus-visible {
       background-color: #094e73;
     }
 
     nav {
       text-align: center;
       margin-bottom: 30px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: inline-flex;
+      gap: 10px;
     }
 
     nav a {
@@ -83,29 +95,57 @@
       transition: background-color 0.3s ease;
     }
 
-    nav a:hover {
+    nav a:hover, nav a:focus-visible {
       background-color: #dceefa;
+      color: #0a5a8f;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -1000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+      background-color: #fff;
+      color: #0a75ad;
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+
+    .skip-link:focus {
+      left: 10px;
+      top: 10px;
+      width: auto;
+      height: auto;
+      outline: 2px solid #094e73;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
+  <!-- Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ✅ Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-    <a href="gear.html">Gear</a>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="gear.html">Gear</a></li>
+    </ul>
   </nav>
 
-  <main>
+  <main id="main-content" role="main">
     <h1>Kayaking Blog</h1>
 
     <!-- Blog Post 1 -->
     <section>
       <h2>My First Trip to Blue Heart Springs</h2>
       <img src="blue-heart-blog.jpg" alt="Kayaking at Blue Heart Springs on a sunny day" />
-      <p>It was a sunny Saturday when we packed up our kayaks and headed out to Buhl. The water was crystal clear, and the springs were even more magical in person. We paddled slowly, taking in the silence and the beauty around us.</p>
-      <p><a href="#">Read More</a></p>
+      <p>It was a sunny Saturday when we packed up our kayaks and headed out to Buhl. The water was crystal clear, and the springs were even more magical in person. We paddled slowly, taking in the views and enjoying the peaceful atmosphere.</p>
+      <p><a href="#" aria-label="Read more about My First Trip to Blue Heart Springs">Read More</a></p>
     </section>
 
     <!-- Blog Post 2 -->
@@ -113,9 +153,8 @@
       <h2>Top 5 Kayaking Tips for Beginners</h2>
       <img src="kayaking-tips.jpg" alt="Kayaker paddling on calm water with safety gear" />
       <p>If you’re new to kayaking, start small. Calm water, the right paddle size, and wearing your life jacket properly are just the beginning. Here are five easy tips to make your trip smoother and safer.</p>
-      <p><a href="#">Read More</a></p>
+      <p><a href="#" aria-label="Read more about Top 5 Kayaking Tips for Beginners">Read More</a></p>
     </section>
   </main>
-
 </body>
 </html>
