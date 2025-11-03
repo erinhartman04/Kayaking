@@ -140,7 +140,21 @@
   <main id="main-content" role="main">
     <h1>Kayak Gear Recommendations</h1>
 
-    <img src="kayak-gear.jpg" alt="Recommended kayak gear including paddles and life jackets">
+    <figure>
+      <!-- responsive image: place your uploaded image at assets/images/kayak-gear.jpg -->
+      <img
+        src="assets/images/kayak-gear.jpg"
+        srcset="assets/images/kayak-gear-400.jpg 400w,
+                assets/images/kayak-gear-800.jpg 800w"
+        sizes="(max-width: 600px) 100vw, 500px"
+        alt="Yellow kayak bow with a red life jacket and a yellow paddle resting on the deck"
+        width="800"
+        height="533"
+      >
+      <figcaption style="text-align:center; color:#666; margin-top:8px;">
+        Recommended kayak gear: paddles, personal flotation devices, and accessories.
+      </figcaption>
+    </figure>
 
     <p>Choosing the right gear can make your kayaking adventure safer and more enjoyable. Whether you're a beginner or a seasoned paddler, investing in quality equipment is key.</p>
 
